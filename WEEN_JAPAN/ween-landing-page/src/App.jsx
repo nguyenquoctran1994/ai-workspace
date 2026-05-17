@@ -16,18 +16,22 @@ const productCards = [
 
 const problemCards = [
   {
+    icon: '🌙',
     title: 'Ngủ muộn, ngủ không sâu',
     text: 'Thói quen ngủ ảnh hưởng lớn đến phục hồi, năng lượng và nhịp sinh hoạt mỗi ngày.'
   },
   {
+    icon: '🍽️',
     title: 'Ăn uống thất thường',
     text: 'Bữa ăn thiếu đều đặn và cân bằng có thể làm trẻ khó duy trì nền tảng dinh dưỡng ổn định.'
   },
   {
+    icon: '🤸‍♀️',
     title: 'Ít vận động phù hợp',
     text: 'Cơ thể cần vận động đúng mức để hỗ trợ sức khỏe xương, cơ, tư thế và sức bền.'
   },
   {
+    icon: '📊',
     title: 'Không biết theo dõi từ đâu',
     text: 'Chiều cao cần được quan sát theo tháng, không phải đánh giá vội chỉ sau vài ngày.'
   }
@@ -58,18 +62,22 @@ const systemCards = [
 
 const timelineSteps = [
   {
+    number: '1',
     title: 'Ngày 1 — Đánh giá nền tảng',
     text: 'Ghi nhận tuổi, giới tính, chiều cao, cân nặng, thói quen ngủ, vận động và mục tiêu.'
   },
   {
+    number: '2',
     title: 'Tuần 1 — Thiết lập thói quen',
     text: 'Xây dựng routine cơ bản về ngủ, ăn uống, vận động và đo lường.'
   },
   {
+    number: '3',
     title: 'Tuần 2–3 — Theo dõi & điều chỉnh',
     text: 'Quan sát mức độ duy trì thói quen và điều chỉnh lộ trình cho phù hợp thực tế.'
   },
   {
+    number: '4',
     title: 'Tuần 4 — Tổng kết lộ trình',
     text: 'Tổng hợp dữ liệu, đánh giá tiến độ và đề xuất bước tiếp theo.'
   }
@@ -172,6 +180,11 @@ function App() {
               <button className="cta-primary">Nhận tư vấn lộ trình</button>
               <button className="cta-secondary">Xem hệ thống 30 ngày</button>
             </div>
+            <div className="hero-badges">
+              <span className="badge">Routine-based</span>
+              <span className="badge">Parent-friendly</span>
+              <span className="badge">Wellness tracking</span>
+            </div>
           </div>
           <div className="hero-visual">
             <div className="hero-card hero-card-soft">
@@ -208,7 +221,8 @@ function App() {
           <h2 className="section-title">Nhiều phụ huynh không thiếu quan tâm, chỉ thiếu một hệ thống dễ theo dõi</h2>
           <div className="card-grid">
             {problemCards.map((card) => (
-              <article key={card.title} className="glass-card">
+              <article key={card.title} className="glass-card problem-card">
+                <div className="problem-icon">{card.icon}</div>
                 <h3>{card.title}</h3>
                 <p>{card.text}</p>
               </article>
@@ -238,6 +252,7 @@ function App() {
           <div className="timeline-grid">
             {timelineSteps.map((step) => (
               <article key={step.title} className="timeline-card glass-card">
+                <div className="timeline-number">{step.number}</div>
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
               </article>
@@ -272,11 +287,12 @@ function App() {
       <section className="tracker-section">
         <div className="container">
           <h2 className="section-title">Theo dõi thói quen tăng trưởng</h2>
+          <p className="section-subtitle">Nền tảng ghi nhận 6 chỉ số chính mỗi ngày để theo dõi lộ trình của trẻ</p>
           <div className="tracker-grid">
             {trackerItems.map((item) => (
               <div key={item.label} className="tracker-item">
                 <span className="tracker-icon">{item.icon}</span>
-                <span>{item.label}</span>
+                <span className="tracker-label">{item.label}</span>
               </div>
             ))}
           </div>
@@ -308,9 +324,27 @@ function App() {
         <div className="container">
           <h2 className="section-title">An toàn, minh bạch và thực tế</h2>
           <div className="trust-content glass-card">
-            <p>Chiều cao phụ thuộc vào nhiều yếu tố như di truyền, dinh dưỡng, giấc ngủ, vận động, độ tuổi và tình trạng phát triển của từng trẻ.</p>
-            <p>WEEN JAPAN không cam kết kết quả tức thì. Hệ thống tập trung vào việc xây dựng thói quen hỗ trợ phát triển lành mạnh, theo dõi đều đặn và tư vấn lộ trình phù hợp.</p>
-            <p>Hệ thống không thay thế tư vấn y tế. Với các trường hợp đặc biệt, phụ huynh nên tham khảo ý kiến chuyên môn.</p>
+            <div className="trust-item">
+              <span className="trust-icon">✓</span>
+              <div>
+                <p><strong>Chiều cao phụ thuộc vào nhiều yếu tố</strong></p>
+                <p>Di truyền, dinh dưỡng, giấc ngủ, vận động, độ tuổi và tình trạng phát triển của từng trẻ.</p>
+              </div>
+            </div>
+            <div className="trust-item">
+              <span className="trust-icon">✓</span>
+              <div>
+                <p><strong>Chúng tôi không cam kết kết quả tức thì</strong></p>
+                <p>WEEN JAPAN tập trung vào việc xây dựng thói quen hỗ trợ phát triển lành mạnh, theo dõi đều đặn và tư vấn lộ trình phù hợp.</p>
+              </div>
+            </div>
+            <div className="trust-item">
+              <span className="trust-icon">✓</span>
+              <div>
+                <p><strong>Không thay thế tư vấn y tế</strong></p>
+                <p>Với các trường hợp đặc biệt, phụ huynh nên tham khảo ý kiến chuyên môn từ bác sĩ.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -318,27 +352,30 @@ function App() {
       <section className="form-section">
         <div className="container">
           <h2 className="section-title">Nhận đánh giá lộ trình miễn phí</h2>
+          <p className="section-subtitle">Trả lời một vài câu hỏi để chúng tôi hiểu rõ hơn tình hình của con và gợi ý lộ trình phù hợp nhất.</p>
           <form className="lead-form glass-card" onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="parentName">Tên phụ huynh</label>
+                <label htmlFor="parentName">Tên phụ huynh <span className="required">*</span></label>
                 <input
                   type="text"
                   id="parentName"
                   name="parentName"
                   value={formData.parentName}
                   onChange={handleInputChange}
+                  placeholder="Ví dụ: Nguyễn Văn A"
                   required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="childAge">Tuổi của con</label>
+                <label htmlFor="childAge">Tuổi của con <span className="required">*</span></label>
                 <input
                   type="number"
                   id="childAge"
                   name="childAge"
                   value={formData.childAge}
                   onChange={handleInputChange}
+                  placeholder="10-18"
                   min="10"
                   max="18"
                   required
@@ -347,7 +384,7 @@ function App() {
             </div>
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="gender">Giới tính của con</label>
+                <label htmlFor="gender">Giới tính của con <span className="required">*</span></label>
                 <select
                   id="gender"
                   name="gender"
@@ -361,15 +398,17 @@ function App() {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="height">Chiều cao hiện tại (cm)</label>
+                <label htmlFor="height">Chiều cao hiện tại (cm) <span className="required">*</span></label>
                 <input
                   type="number"
                   id="height"
                   name="height"
                   value={formData.height}
                   onChange={handleInputChange}
+                  placeholder="Ví dụ: 160"
                   min="100"
                   max="200"
+                  required
                 />
               </div>
             </div>
@@ -382,6 +421,7 @@ function App() {
                   name="weight"
                   value={formData.weight}
                   onChange={handleInputChange}
+                  placeholder="Ví dụ: 55"
                   min="20"
                   max="120"
                 />
@@ -394,6 +434,7 @@ function App() {
                   name="fatherHeight"
                   value={formData.fatherHeight}
                   onChange={handleInputChange}
+                  placeholder="Ví dụ: 175"
                   min="140"
                   max="220"
                 />
@@ -408,12 +449,13 @@ function App() {
                   name="motherHeight"
                   value={formData.motherHeight}
                   onChange={handleInputChange}
+                  placeholder="Ví dụ: 162"
                   min="140"
                   max="200"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="pubertyStatus">Tình trạng dậy thì</label>
+                <label htmlFor="pubertyStatus">Tình trạng dậy thì <span className="required">*</span></label>
                 <select
                   id="pubertyStatus"
                   name="pubertyStatus"
@@ -430,24 +472,26 @@ function App() {
               </div>
             </div>
             <div className="form-group full-width">
-              <label htmlFor="sleepHabits">Thói quen ngủ hiện tại</label>
+              <label htmlFor="sleepHabits">Thói quen ngủ hiện tại <span className="required">*</span></label>
               <input
                 type="text"
                 id="sleepHabits"
                 name="sleepHabits"
                 value={formData.sleepHabits}
                 onChange={handleInputChange}
-                placeholder="Ví dụ: Ngủ muộn, hay thức giấc nửa đêm..."
+                placeholder="Ví dụ: Ngủ muộn 11-12 giờ, hay thức giấc nửa đêm"
+                required
               />
             </div>
             <div className="form-group full-width">
-              <label htmlFor="phone">Số điện thoại / Zalo</label>
+              <label htmlFor="phone">Số điện thoại / Zalo <span className="required">*</span></label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
+                placeholder="+84 9xx xxx xxx"
                 required
               />
             </div>
@@ -458,12 +502,12 @@ function App() {
                 name="goal"
                 value={formData.goal}
                 onChange={handleInputChange}
-                placeholder="Ví dụ: Hỗ trợ phát triển chiều cao, cải thiện tư thế, nâng cao năng lượng..."
+                placeholder="Ví dụ: Hỗ trợ phát triển chiều cao, cải thiện tư thế, nâng cao năng lượng, cải thiện giấc ngủ..."
                 rows="4"
               ></textarea>
             </div>
-            <button type="submit" className="form-submit">Nhận đánh giá lộ trình miễn phí</button>
-            <p className="form-note">Thông tin chỉ dùng để tư vấn lộ trình phù hợp và không chia sẻ cho bên thứ ba.</p>
+            <button type="submit" className="form-submit">Nhận đánh giá routine miễn phí</button>
+            <p className="form-note">Thông tin chỉ dùng để gợi ý routine phù hợp hơn. Chúng tôi không chia sẻ cho bên thứ ba.</p>
           </form>
         </div>
       </section>
