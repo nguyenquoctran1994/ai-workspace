@@ -46,12 +46,16 @@ Do not use this skill for:
 
 Before producing detailed output, read relevant CHILLAB project files when available:
 
-- `CHILLAB/AGENTS.md`
-- `CHILLAB/README.md`
-- Any CHILLAB brand, content, menu, event, or customer-handling docs inside `CHILLAB/`
-- Any available CHILLAB visual assets, venue photos, posters, or menu references inside `CHILLAB/assets/` or similar folders
+- `docs\CHILLAB-reference.md`
+- `..\CHILLAB\AGENTS.md`
+- `..\CHILLAB\README.md`
+- `..\CHILLAB\README_START_HERE.md`
+- Any specific CHILLAB brand, content, menu, event, or customer-handling docs inside `..\CHILLAB\`
+- Absolute CHILLAB folder fallback: `C:\Users\ADMIN\Documents\PROJECTS\CHILLAB`
 
-Read only the parts needed for the task. Do not duplicate full project documents in the output.
+CHILLAB is intentionally kept outside ai-workspace because it is a large business/media/archive folder.
+
+Read only the parts needed for the task. Do not duplicate full project documents in the output. Do not deeply scan, move, rename, delete, or bulk-edit CHILLAB media/archive folders unless the user explicitly asks. Only inspect specific visual assets when the user explicitly provides or requests them.
 
 If files are missing, continue with available context and clearly mention what could not be verified.
 

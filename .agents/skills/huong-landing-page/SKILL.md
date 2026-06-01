@@ -20,7 +20,8 @@ Use when designing landing page copy, sections, and user flow for HUONG.
 # Do
 - Keep the landing page focused on clear benefits and trust.
 - Use concise, reusable sections.
-- Reference HUONG project docs when available.
+- Read `docs\HUONG-reference.md` first, then use HUONG docs from `..\HUONG\HUONG_AI` or `..\HUONG\HUONG_AI\HUONG_LANDING_PAGE_PROJECT` when available. Use `C:\Users\ADMIN\Documents\PROJECTS\HUONG` as the absolute fallback.
+- Do not move HUONG into ai-workspace, create a HUONG folder here, or deeply scan HUONG media/product folders unless the user explicitly asks.
 
 # Don't
 - Use vague, unfocused messaging.

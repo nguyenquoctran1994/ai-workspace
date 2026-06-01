@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+
+# Environment and local secrets
+.env
+.env.*
+
+# Build output and caches
+dist/
+build/
+.cache/
+tmp/
+temp/
+
+# Logs
+*.log
+
+# Archives and exports
+*.zip
+*.rar
+*.7z
+exports/
+
+# Backups and unsorted archives
+backups/
+backup/
+OLD_BACKUP*/
+_DUPLICATES/
+_CAN_PHAN_LOAI/
+OLD_UNORGANIZED_BACKUP/
+
+# Video and motion media
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# Design source files
+*.psd
+*.ai
+*.fig
+*.sketch
+*.blend
+
+# Raster media
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
