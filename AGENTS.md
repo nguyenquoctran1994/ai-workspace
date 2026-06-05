@@ -1,141 +1,137 @@
-# AGENTS.md
+# AI Workspace Agent Instructions
 
-# WEEN JAPAN AI WORK RULES
+## Scope
 
-## PROJECT_OVERVIEW
+This workspace contains shared AI workflow rules and core reusable development workflows.
 
-WEEN is a Japanese-inspired wellness and growth support platform.
+This file must remain project-neutral. Do not place WEEN JAPAN, CHILLAB, HUONG, or other project-specific brand, content, product, media, or business rules here.
 
-Primary goals:
+Project-specific rules belong in each project root `AGENTS.md` and `RULES.md`.
 
-- build trust with parents
-- emotionally motivate teenagers
-- maintain premium wellness positioning
-- support scalable AI-assisted systems
+## Core Workflow
 
----
+Use the lightest workflow that fits the task:
 
-## REQUIRED_CONTEXT
+- Tiny task: inspect only the target files -> implement -> verify only what matters -> report
+- Feature or landing page: spec -> plan -> implement one task -> review
+- Refactor: inspect the affected code -> refactor -> verify behavior -> review
+- Test-first task: tdd -> implement -> verify
+- Git task: branch -> implement -> review -> commit only when approved
+- PR feedback: address-pr-feedback only when explicitly requested
 
-Before generating or editing code, always read:
+Do not overuse spec or plan for tiny tasks.
 
-- 01_BRAND_DNA/brand_positioning.md
-- 01_BRAND_DNA/forbidden_rules.md
-- 02_PRODUCT_SYSTEM/product_logic.md
-- 03_UI_DESIGN_SYSTEM/ui_system.md
-- 05_APP_TRACKING/tracking_logic.md
+## Required Reading
 
----
+Read narrowly by default. Inspect only files that are explicitly named, directly imported, directly linked, or clearly required by the task.
 
-## WORK_STYLE
+Always prefer `C:\Users\ADMIN\Documents\PROJECTS\ai-workspace` as the working directory for shared workspace tasks.
 
-- Prefer reusable components first
-- Avoid unnecessary packages
-- Keep code beginner-friendly
-- Preserve existing architecture
-- Mobile-first always
-- Build lean MVP first
-- Prefer scalable systems
-- Reuse before rebuilding
+Never use `C:\Users\ADMIN\Documents\PROJECTS` as the working directory.
 
----
+Before editing, read the smallest useful set from:
 
-## OUTPUT_STYLE
+- the active project root `AGENTS.md`
+- the active project root `RULES.md`, if present
+- directly relevant specs, docs, tasks, source files, or tests
 
-- Make direct edits
-- Explain only what changed
-- Avoid unnecessary theory
-- Avoid excessive abstraction
-- If uncertain, choose safest MVP assumption
+Do not scan the full repo unless the user explicitly asks for a repo-wide audit or search.
 
----
+Do not inspect `node_modules`, `dist`, `build`, cache folders, generated output, large assets, or media files unless the task specifically requires them.
 
-## ENGINEERING_RULES
+Use `docs/projects/*.md` as project bridge docs for external project orientation.
 
-Preferred stack:
+Treat `CHILLAB`, `HUONG`, `WEEN_JAPAN`, `OLD_BACKUP_WEEN_JAPAN`, media, exports, backups, and archives as external references by default.
 
-- React
-- TypeScript
-- TailwindCSS
+Do not scan external folders deeply.
 
-Preferred architecture:
+If an external resource is needed, ask for the exact file path and open only that file.
 
-- modular folders
-- reusable sections
-- scalable components
-- API-first structure
+## File Safety
 
-Avoid:
+Do not move, rename, delete, archive, reorganize, or clean up files unless explicitly requested.
 
-- duplicated logic
-- deeply nested state
-- unnecessary dependencies
-- premature optimization
+Do not modify business-critical data, secrets, credentials, production exports, source media, or live operational files without explicit approval.
 
----
+Do not touch unrelated project folders.
 
-## TOKEN_SAVING_TERMINAL_RULES
+Do not open media or asset files unless the task is about media/assets or the user explicitly asks.
 
-When inspecting the repository, prefer RTK commands to reduce wasted tokens and rate-limit usage.
+Work on samples, drafts, copies, or approved target files when risk is high.
 
-Use RTK for common terminal checks:
+## Implementation Rules
 
-- Use `rtk ls .` instead of raw `ls -la` when listing folders.
-- Use `rtk read <file>` instead of dumping large files directly.
-- Use `rtk grep "<keyword>" .` instead of raw `grep` / `rg` when searching the repo.
-- Use `rtk git status` instead of raw `git status`.
-- Use `rtk git diff` instead of raw `git diff`.
-- Use `rtk npm test`, `rtk npm run build`, or `rtk test <command>` when running tests/builds with long output.
-- Use `rtk docker ps` or related RTK-wrapped Docker commands when checking Docker output.
+Prefer existing project patterns and local helpers.
 
-Avoid dumping long command output into the agent context. Prefer compact summaries and only expand full logs when debugging requires it.
+Keep changes focused and reviewable.
 
-For Codex, remember that RTK integration is instruction-based through `AGENTS.md` / `RTK.md`, so agents should intentionally choose RTK-prefixed commands during repository exploration.
+Avoid unnecessary dependencies, broad rewrites, unrelated refactors, and duplicate systems.
 
----
+Preserve public behavior unless the user asks for a behavior change.
 
-## DESIGN_RULES
+## Testing And Verification
 
-UI should feel:
+Run the minimum relevant checks that match the change.
 
-- calm
-- premium
-- biotech-inspired
-- trustworthy
-- minimal
+Docs-only changes do not need builds, dev servers, browser verification, or app tests unless the user asks.
 
-Avoid:
+For code changes, prefer available tests, linting, type checks, builds, or targeted manual verification.
 
-- gaming aesthetics
-- crypto visuals
-- cluttered layouts
-- excessive gradients
+For UI changes, use browser verification when appropriate and approved by the workflow.
 
----
+If verification cannot run, report why.
 
-## CONTENT_RULES
+For review tasks, inspect the current git diff only unless the user asks for a broader audit.
 
-Content should:
+## Reporting
 
-- educate first
-- build trust
-- avoid exaggerated claims
-- maintain premium positioning
+Keep output short. Every task should report only:
 
-Avoid:
+- changed files
+- verification result
+- assumptions
+- risks
+- next recommended step
 
-- cringe marketing
-- fake urgency
-- unrealistic promises
+If no files changed, say that clearly.
 
----
+## Default Final Response Format
 
-## AGENT_BEHAVIOR
+At the end of every task, always respond using this format:
 
-Agents should:
+```text
+STATUS:
+Run and paste:
+git status --short --untracked-files=all
 
-- read existing files before generating new systems
-- preserve design consistency
-- avoid duplicating components
-- optimize for maintainability
-- prioritize readability over cleverness
+COMMITS:
+If commits were created, paste:
+git log --oneline -3
+If no commits were created, write:
+No commits created.
+
+CHANGED FILES:
+List changed files only.
+
+SUMMARY:
+Give 3-5 concise bullets explaining what changed.
+
+RISKS:
+List only real risks or write:
+None.
+
+PUSH:
+Say whether push was done or not.
+```
+
+If the task includes git changes, never omit STATUS, CHANGED FILES, RISKS, and PUSH.
+
+## Git Discipline
+
+Ask before staging, committing, pushing, publishing, deploying, opening pull requests, or syncing external systems.
+
+Do not stage unrelated files.
+
+Do not commit secrets, raw media, business exports, credentials, or private data.
+
+Respect existing user changes in the working tree.
