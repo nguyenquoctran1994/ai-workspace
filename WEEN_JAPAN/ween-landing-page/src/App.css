@@ -59,7 +59,7 @@ h3 {
 h1 {
   font-size: clamp(2.5rem, 5.5vw, 4rem);
   margin-bottom: 1.5rem;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   background: linear-gradient(135deg, #eef2ff 0%, #c5d7ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -69,7 +69,7 @@ h1 {
 h2 {
   font-size: clamp(2rem, 4vw, 3.2rem);
   margin-bottom: 2rem;
-  letter-spacing: -0.005em;
+  letter-spacing: 0;
 }
 
 h3 {
@@ -110,6 +110,12 @@ button {
 
 .hero-copy {
   max-width: 650px;
+}
+
+.hero-text {
+  margin-bottom: 2rem;
+  color: #c5d7ff;
+  font-size: 1.05rem;
 }
 
 .hero-ctas {
@@ -266,7 +272,8 @@ button {
 }
 
 .visual-illustration {
-  font-size: 2.8rem;
+  font-size: 2.4rem;
+  font-weight: 700;
   margin: 0.8rem 0 0.5rem;
 }
 
@@ -523,6 +530,161 @@ button {
   display: none;
 }
 
+.planner-section {
+  padding: 90px 0;
+}
+
+.planner-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.planner-copy {
+  position: sticky;
+  top: 2rem;
+}
+
+.planner-copy h2 {
+  margin-bottom: 1.3rem;
+}
+
+.planner-copy > p {
+  color: #c5d7ff;
+  margin-bottom: 1.5rem;
+  max-width: 560px;
+}
+
+.planner-summary {
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.planner-summary span,
+.planner-field > span,
+.routine-preview span {
+  display: block;
+  color: #8fb2ff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.planner-summary strong {
+  display: block;
+  color: #eef2ff;
+  font-size: 1.8rem;
+  margin: 0.4rem 0;
+}
+
+.planner-summary p {
+  color: #c5d7ff;
+}
+
+.planner-panel {
+  padding: 2rem;
+}
+
+.planner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.planner-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  color: #dbf7ff;
+  font-weight: 600;
+}
+
+.planner-grid input,
+.planner-grid select {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(69, 216, 255, 0.15);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #eef2ff;
+}
+
+.planner-field {
+  margin-top: 1.5rem;
+}
+
+.segmented-control,
+.day-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+}
+
+.segmented-control button,
+.day-picker button {
+  border: 1px solid rgba(69, 216, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #dbe3ff;
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.segmented-control button:hover,
+.day-picker button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(69, 216, 255, 0.35);
+}
+
+.segmented-control button.active,
+.day-picker button.selected {
+  background: rgba(69, 216, 255, 0.16);
+  border-color: rgba(69, 216, 255, 0.45);
+  color: #dbf7ff;
+}
+
+.routine-preview {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.routine-preview div {
+  border: 1px solid rgba(69, 216, 255, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1rem;
+}
+
+.routine-preview strong {
+  display: block;
+  color: #eef2ff;
+  margin-top: 0.35rem;
+}
+
+.planner-copy-status {
+  color: #c5d7ff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+.pack-card li:before {
+  content: '✓';
+}
+
+.pack-card.featured::before {
+  content: 'Khuyên dùng';
+}
+
 .tracker-section {
   padding: 90px 0;
 }
@@ -764,6 +926,14 @@ button {
   .card-grid {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
+
+  .planner-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-copy {
+    position: static;
+  }
 }
 
 @media (max-width: 768px) {
@@ -809,12 +979,22 @@ button {
     padding: 2.2rem;
   }
 
+  .planner-grid,
+  .routine-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-panel {
+    padding: 1.6rem;
+  }
+
   .problem-section,
   .system-section,
   .timeline-section,
   .packs-section,
   .tracker-section,
   .plans-section,
+  .planner-section,
   .trust-section,
   .form-section {
     padding: 70px 0;
@@ -908,9 +1088,9 @@ button {
   .packs-section,
   .tracker-section,
   .plans-section,
+  .planner-section,
   .trust-section,
   .form-section {
     padding: 50px 0;
   }
 }
-
