@@ -1,6 +1,10 @@
 # Blueprint Workflow Guide
 
-This workspace uses Blueprint skills as local, practical workflows for common Codex tasks. Blueprint skills are installed locally in:
+This is a short index of local Blueprint workflows for common Codex tasks. Use the smallest applicable workflow, and avoid `spec` or `plan` for tiny tasks unless requested.
+
+Follow the shared `AGENTS.md` for safety, scope, verification, git discipline, and output style. Brand or project-specific rules belong in each project root `AGENTS.md` and `RULES.md`, not in the shared workspace `AGENTS.md` or Blueprint skills.
+
+Blueprint skills are installed locally in:
 
 ```text
 .agents/skills/
@@ -8,7 +12,7 @@ This workspace uses Blueprint skills as local, practical workflows for common Co
 
 Each skill lives in its own folder and includes a `SKILL.md` file with the workflow instructions for that task.
 
-If Codex does not auto-load skills in the current session, read the relevant local `SKILL.md` file directly before using that workflow. For example, use `.agents/skills/implement/SKILL.md` for implementation tasks or `.agents/skills/review/SKILL.md` for review tasks.
+If Codex does not auto-load skills in the current session, read only the relevant local `SKILL.md` file before using that workflow. For example, use `.agents/skills/implement/SKILL.md` for implementation tasks or `.agents/skills/review/SKILL.md` for review tasks.
 
 ## Workflow Table
 
@@ -22,17 +26,7 @@ If Codex does not auto-load skills in the current session, read the relevant loc
 | Git workflow | `branch` -> `implement` -> `review` -> `commit` |
 | GitHub PR feedback | `address-pr-feedback` only when the user explicitly asks |
 
-For landing page or website features, `browser-verify` is optional and should only be used after the user confirms.
-
-## Safe Usage Rules
-
-- Do not use `spec` or `plan` for tiny tasks unless requested.
-- Do not edit unrelated project folders.
-- Do not touch media/assets unless the task requires it.
-- Do not use `browser-verify` without confirmation.
-- Do not use `address-pr-feedback` without confirmation.
-- Always report files changed.
-- Always keep business brand context in `AGENTS.md`, not inside Blueprint skills.
+Use `browser-verify` only when the active workflow and `AGENTS.md` call for browser checks.
 
 ## Example Prompts
 
@@ -72,10 +66,16 @@ Use `design-doc` before building a large automation:
 Use design-doc before building the weekly content automation workflow.
 ```
 
-## Recommended Default Workflow
+## Default
 
-For most business projects, use:
+For consequential features, use:
 
 ```text
 spec -> plan -> implement one task -> review
+```
+
+For tiny tasks, use:
+
+```text
+inspect target files -> implement -> verify only what matters -> report
 ```

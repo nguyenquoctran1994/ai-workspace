@@ -1,18 +1,20 @@
 # AI Workspace
 
+Orientation only. For Codex operational rules, follow `AGENTS.md`.
+
 AI-native business workspace for:
 
-* WEEN → wellness ecosystem
-* CHILLAB → nightlife ecosystem
-* HUONG → fashion retail ecosystem
+* WEEN -> wellness ecosystem
+* CHILLAB -> nightlife ecosystem
+* HUONG -> fashion retail ecosystem
 
 ## Core Files
 
-* MASTER.md → global philosophy
-* AGENTS.md → operational rules
-* DESIGN.md → visual systems
-* PRD.md → product direction
-* TASK.md → execution tasks
+* MASTER.md -> global philosophy
+* AGENTS.md -> operational rules
+* DESIGN.md -> visual systems
+* PRD.md -> product direction
+* TASK.md -> execution tasks
 
 ## Purpose
 
